@@ -1,19 +1,33 @@
 #!/usr/bin/env bash
 # This script automatically detects the EasyEffects presets directory and installs all presets.
+# Recent EasyEffects versions load presets from the XDG data dir; older versions used the config dir.
+# We install to both so the presets show up regardless of version.
 
 GIT_REPOSITORY="https://github.com/Soab42/easyeffects-presets"
 BRANCH="main"
 
 check_installation() {
     if command -v flatpak &>/dev/null && flatpak list | grep -q "com.github.wwmm.easyeffects"; then
-        PRESETS_DIRECTORY="$HOME/.var/app/com.github.wwmm.easyeffects/config/easyeffects"
+        FLATPAK_BASE="$HOME/.var/app/com.github.wwmm.easyeffects"
+        PRESETS_DIRECTORIES=(
+            "$FLATPAK_BASE/data/easyeffects"
+            "$FLATPAK_BASE/config/easyeffects"
+        )
     elif which easyeffects >/dev/null 2>&1; then
-        PRESETS_DIRECTORY="$HOME/.config/easyeffects"
+        DATA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}"
+        CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
+        PRESETS_DIRECTORIES=(
+            "$DATA_DIR/easyeffects"
+            "$CONFIG_DIR/easyeffects"
+        )
     else
         echo "Error! Couldn't find EasyEffects presets directory!"
+        echo "Make sure EasyEffects is installed (system package or Flatpak)."
         exit 1
     fi
-    mkdir -p "$PRESETS_DIRECTORY/output"
+    for dir in "${PRESETS_DIRECTORIES[@]}"; do
+        mkdir -p "$dir/output"
+    done
 }
 
 install_presets() {
@@ -36,11 +50,17 @@ install_presets() {
     fi
 
     COUNT=$(find "$EXTRACTED_DIR/json" -maxdepth 1 -name "*.json" | wc -l)
-    echo "Installing $COUNT presets into $PRESETS_DIRECTORY/output/ ..."
-    cp "$EXTRACTED_DIR/json/"*.json "$PRESETS_DIRECTORY/output/"
+    for dir in "${PRESETS_DIRECTORIES[@]}"; do
+        echo "Installing $COUNT presets into $dir/output/ ..."
+        cp "$EXTRACTED_DIR/json/"*.json "$dir/output/"
+    done
 
     rm -rf "$TMP_DIR"
-    echo "Done! $COUNT presets installed to $PRESETS_DIRECTORY/output/"
+    echo "Done! $COUNT presets installed to:"
+    for dir in "${PRESETS_DIRECTORIES[@]}"; do
+        echo "  - $dir/output/"
+    done
+    echo "Restart EasyEffects (or reload its preset list) to see them."
 }
 
 check_installation

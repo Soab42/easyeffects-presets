@@ -32,23 +32,32 @@ sudo apt install curl tar
 
 # Manual installation
 
-Clone the repository and copy the `.json` files from `json/` into the `output` directory of your EasyEffects config folder.
+Clone the repository and copy the `.json` files from `json/` into the `output` directory of your EasyEffects presets folder.
 
-If you installed EasyEffects through **Flatpak**, the config directory is:
+> **Note:** recent EasyEffects versions load presets from the **XDG data** directory, not the config directory. The `install.sh` script writes to both locations so presets show up regardless of version. If you install manually, use the **data** paths below (preferred), falling back to config if your version is older.
 
-```
-~/.var/app/com.github.wwmm.easyeffects/config/easyeffects/output
-```
-
-If you used the **PPA** (Ubuntu) or the **AUR** package (Arch), it is:
+If you installed EasyEffects through **Flatpak**, copy to:
 
 ```
-~/.config/easyeffects/output
+~/.var/app/com.github.wwmm.easyeffects/data/easyeffects/output/
 ```
+
+(older Flatpak builds may also read from `~/.var/app/com.github.wwmm.easyeffects/config/easyeffects/output/`)
+
+If you used the **PPA** (Ubuntu) or the **AUR** package (Arch), copy to:
+
+```
+~/.local/share/easyeffects/output/
+```
+
+(older native builds may read from `~/.config/easyeffects/output/`)
 
 Then copy the presets:
 
 ```shell
 git clone https://github.com/Soab42/easyeffects-presets.git
-cp easyeffects-presets/json/*.json ~/.config/easyeffects/output/
+mkdir -p ~/.local/share/easyeffects/output
+cp easyeffects-presets/json/*.json ~/.local/share/easyeffects/output/
 ```
+
+Restart EasyEffects (or reload its preset list) for the new presets to appear.

@@ -1,0 +1,142 @@
+{
+    "output": {
+        "bass_enhancer#0": {
+            "amount": 5.0,
+            "blend": 0.0,
+            "bypass": false,
+            "floor": 40.0,
+            "floor-active": true,
+            "harmonics": 8.5,
+            "input-gain": 0.0,
+            "output-gain": 0.0,
+            "scope": 100.0
+        },
+        "blocklist": [],
+        "crystalizer#0": {
+            "adaptive-intensity": true,
+            "band0": {
+                "bypass": false,
+                "intensity": 2.0,
+                "mute": false
+            },
+            "band1": {
+                "bypass": false,
+                "intensity": 1.0,
+                "mute": false
+            },
+            "band10": {
+                "bypass": false,
+                "intensity": 0.0,
+                "mute": false
+            },
+            "band11": {
+                "bypass": false,
+                "intensity": 0.0,
+                "mute": false
+            },
+            "band12": {
+                "bypass": false,
+                "intensity": 0.0,
+                "mute": false
+            },
+            "band2": {
+                "bypass": false,
+                "intensity": -2.0,
+                "mute": false
+            },
+            "band3": {
+                "bypass": false,
+                "intensity": 0.0,
+                "mute": false
+            },
+            "band4": {
+                "bypass": false,
+                "intensity": 0.0,
+                "mute": false
+            },
+            "band5": {
+                "bypass": false,
+                "intensity": 0.0,
+                "mute": false
+            },
+            "band6": {
+                "bypass": false,
+                "intensity": 0.0,
+                "mute": false
+            },
+            "band7": {
+                "bypass": false,
+                "intensity": 0.0,
+                "mute": false
+            },
+            "band8": {
+                "bypass": false,
+                "intensity": 0.0,
+                "mute": false
+            },
+            "band9": {
+                "bypass": false,
+                "intensity": 0.0,
+                "mute": false
+            },
+            "bypass": false,
+            "fixed-quantum": false,
+            "input-gain": 0.0,
+            "output-gain": 0.0,
+            "oversampling": true,
+            "oversampling-quality": 5.0,
+            "transition-band": 120.0
+        },
+        "filter#0": {
+            "balance": 0.0,
+            "bypass": false,
+            "equal-mode": "IIR",
+            "frequency": 90.0,
+            "gain": 0.0,
+            "input-gain": 0.0,
+            "mode": "APO (DR)",
+            "output-gain": 0.0,
+            "quality": 0.707,
+            "slope": "x2",
+            "type": "High-pass",
+            "width": 4.0
+        },
+        "level_meter#0": {
+            "bypass": false
+        },
+        "limiter#0": {
+            "alr": false,
+            "alr-attack": 5.0,
+            "alr-knee": 0.0,
+            "alr-knee-smooth": -5.0,
+            "alr-release": 50.0,
+            "attack": 5.0,
+            "bypass": false,
+            "dithering": "None",
+            "gain-boost": false,
+            "input-gain": 0.0,
+            "input-to-link": 0.0,
+            "input-to-sidechain": 0.0,
+            "link-to-input": 0.0,
+            "link-to-sidechain": 0.0,
+            "lookahead": 5.0,
+            "mode": "Herm Thin",
+            "output-gain": 0.0,
+            "oversampling": "None",
+            "release": 5.0,
+            "sidechain-preamp": 0.0,
+            "sidechain-to-input": 0.0,
+            "sidechain-to-link": 0.0,
+            "sidechain-type": "Internal",
+            "stereo-link": 100.0,
+            "threshold": -1.0
+        },
+        "plugins_order": [
+            "filter#0",
+            "bass_enhancer#0",
+            "crystalizer#0",
+            "limiter#0",
+            "level_meter#0"
+        ]
+    }
+}

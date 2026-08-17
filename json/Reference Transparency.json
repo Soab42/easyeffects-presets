@@ -1,0 +1,67 @@
+{
+    "output": {
+        "blocklist": [],
+        "filter#0": {
+            "balance": 0.0,
+            "bypass": false,
+            "equal-mode": "IIR",
+            "frequency": 18.0,
+            "gain": 0.0,
+            "input-gain": 0.0,
+            "mode": "APO (DR)",
+            "output-gain": 0.0,
+            "quality": 0.707,
+            "slope": "x2",
+            "type": "High-pass",
+            "width": 4.0
+        },
+        "level_meter#0": {
+            "bypass": false
+        },
+        "limiter#0": {
+            "alr": false,
+            "alr-attack": 5.0,
+            "alr-knee": 0.0,
+            "alr-knee-smooth": -5.0,
+            "alr-release": 50.0,
+            "attack": 1.0,
+            "bypass": false,
+            "dithering": "None",
+            "gain-boost": false,
+            "input-gain": 0.0,
+            "input-to-link": 0.0,
+            "input-to-sidechain": 0.0,
+            "link-to-input": 0.0,
+            "link-to-sidechain": 0.0,
+            "lookahead": 5.0,
+            "mode": "Herm Thin",
+            "output-gain": 0.0,
+            "oversampling": "Full x8(3L)",
+            "release": 50.0,
+            "sidechain-preamp": 0.0,
+            "sidechain-to-input": 0.0,
+            "sidechain-to-link": 0.0,
+            "sidechain-type": "Internal",
+            "stereo-link": 100.0,
+            "threshold": -1.0
+        },
+        "loudness#0": {
+            "bypass": false,
+            "clipping": false,
+            "clipping-range": 6.0,
+            "fft": "4096",
+            "iir-approximation": "Normal",
+            "input-gain": 0.0,
+            "mode": "IIR",
+            "output-gain": 0.0,
+            "std": "ISO226-2023",
+            "volume": -14.0
+        },
+        "plugins_order": [
+            "filter#0",
+            "loudness#0",
+            "limiter#0",
+            "level_meter#0"
+        ]
+    }
+}
